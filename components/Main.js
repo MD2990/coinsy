@@ -1,26 +1,16 @@
 import React from "react";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
+import { Wrap, WrapItem, Center, Text, Box, StatLabel } from "@chakra-ui/react";
+import Image from "next/image";
 
 export default function Main({
-  open,
-  close,
-  time_open,
-  time_close,
-  high,
-  low,
-  volume,
-  market_cap,
+  id,
+  name,
+  current_price,
+  symbol,
+  total_volume,
+  marketcap,
+  image,
+  priceChange,
 }) {
   // create a function to convert the date and time   to a readable format
   function convertDate(date) {
@@ -51,53 +41,26 @@ export default function Main({
   }
 
   return (
-    <Wrap justify="center" m="4">
-      <>
-        <Table variant="striped" colorScheme="teal" size="sm">
-          <TableCaption>Imperial to metric conversion factors</TableCaption>
-          <Thead isTruncated>
-            <Tr>
-              <Th>Coin</Th>
-              <Th>open time</Th>
-              <Th>close time</Th>
-              <Th>Open</Th>
-              <Th>high</Th>
-              <Th>low</Th>
-              <Th>close</Th>
-              <Th>volume</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            <Tr>
-              <Td>BTC</Td>
-              <Td>{convertDate(time_open)}</Td>
-              <Td>{convertDate(time_close)}</Td>
-              <Td>{round(open)}</Td>
-              <Td>{round(high)}</Td>
-              <Td>{round(low)}</Td>
-              <Td>{round(close)}</Td>
-              <Td>{round(volume)}</Td>
-            </Tr>
-            {/*        <Tr>
-              <Td>feet</Td>
-              <Td>centimetres (cm)</Td>
-              <Td isNumeric>30.48</Td>
-            </Tr> */}
-            {/*      <Tr>
-              <Td>yards</Td>
-              <Td>metres (m)</Td>
-              <Td isNumeric>0.91444</Td>
-            </Tr> */}
-          </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th>multiply by</Th>
-            </Tr>
-          </Tfoot>
-        </Table>
-      </>
-    </Wrap>
+    // high_24h: 49817,
+    //    low_24h: 48230,
+
+    <WrapItem>
+      <Center>
+        <Box shadow={"2xl"} rounded={"2xl"} textAlign={"center"} p="4" m="4">
+          <Image
+            src={image}
+            layout={"intrinsic"}
+            width={"25px"}
+            height={"25px"}
+            alt={name}
+          />
+          <Text>{name}</Text>
+          <Text textAlign={"left"}>current_price{current_price}</Text>
+          <Text textAlign={"left"}> total_volume{total_volume}</Text>
+          <Text textAlign={"left"}>marketcap {marketcap}</Text>
+          <Text textAlign={"left"}>priceChange{priceChange}</Text>
+        </Box>
+      </Center>
+    </WrapItem>
   );
 }
