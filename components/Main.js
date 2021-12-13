@@ -152,5 +152,3 @@ export default function Main() {
   );
 }
 
-// Nothing to see here
-// Nothing to Show here

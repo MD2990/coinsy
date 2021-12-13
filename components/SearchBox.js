@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Input, WrapItem, Button, Text, Wrap } from "@chakra-ui/react";
 import { useSnapshot } from "valtio";
 import state from "../store";
@@ -34,7 +34,7 @@ export default function SearchBox({ json }) {
     // save the timeout seconds to a variable so we can show it in the UI
   };
 
-  console.log("runngin");
+
   useEffect(() => {
     if (state.disabled) {
       const e = setInterval(() => {
