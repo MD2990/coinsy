@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["assets.coingecko.com/coins"],
+    domains: ["assets.coingecko.com"],
   },
 };

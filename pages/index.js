@@ -1,8 +1,18 @@
-import { Wrap } from "@chakra-ui/react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import Main from "../components/Main";
+import SearchBox from "../components/SearchBox";
+import Title from "../components/Title";
+import state from "../store";
 
 export default function Home({ json }) {
+
+ 
+  
+
+
+  
   return (
     <>
       <Head>
@@ -11,33 +21,13 @@ export default function Home({ json }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Wrap justify={'center'} >
-        {json.map(
-          ({
-            id,
-            name,
-            current_price,
-            symbol,
-            total_volume,
-            market_cap,
-            image,
-            price_change_percentage_24h,
-          }) => {
-            return (
-              <Main
-                key={id}
-                name={name}
-                current_price={current_price}
-                symbol={symbol}
-                marketcap={market_cap}
-                total_volume={total_volume}
-                image={image}
-                priceChange={price_change_percentage_24h}
-              />
-            );
-          }
-        )}
-      </Wrap>
+      <Title />
+
+     
+
+      <SearchBox json={json} />
+
+      <Main />
     </>
   );
 }
@@ -46,17 +36,18 @@ export default function Home({ json }) {
 
 // get server side props
 export async function getServerSideProps() {
-  const API = process.env.api;
-  // make async call to external API
-  //https://api.coinpaprika.com/#tag/Coins/paths/~1coins~1{coin_id}~1ohlcv~1historical/get
+
+
+ 
+
 
   const res = await fetch(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
   );
-
   const json = await res.json();
 
-  console.log(json);
+ // set timeout to simulate a slow server
+ 
 
   return {
     props: {
