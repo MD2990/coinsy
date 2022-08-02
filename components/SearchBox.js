@@ -43,14 +43,14 @@ export default function SearchBox({ json }) {
 
       return () => clearInterval(e);
     }
-  }, [, snap.disabled]);
+  }, [snap.disabled]);
 
   return (
-    <Wrap justify="center" align="end" spacing={(2, 3, 4, 5)}>
+    <Wrap justify="center" align="end" spacing={(1, 2, 4)}>
       <WrapItem>
         <Text
           fontSize={["xx-small", "md", "lg", "xl"]}
-          fontFamily="cursive"
+          fontFamily="sans-serif"
           fontWeight="semibold"
           color="blue.300"
         >
@@ -67,7 +67,7 @@ export default function SearchBox({ json }) {
       </WrapItem>
       <WrapItem>
         <IconButton
-          size="lg"
+          size={["sm", "md", "lg"]}
           colorScheme="blue"
           aria-label="Clear Search"
           icon={<RepeatIcon />}
@@ -80,6 +80,7 @@ export default function SearchBox({ json }) {
         <Button
           disabled={snap.disabled}
           colorScheme="blue"
+          size={["sm", "md", "lg"]}
           onClick={() => {
             handleClick();
 

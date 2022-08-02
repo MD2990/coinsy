@@ -95,7 +95,8 @@ export default function Main() {
                     alt={name}
                   />
                   <Text
-                    fontFamily="fantasy"
+                    fontFamily="serif"
+                    fontWeight={"black"}
                     letterSpacing="wider"
                     fontSize={["sm", "md", "lg", "xl"]}
                   >
@@ -128,7 +129,7 @@ export default function Main() {
           {" "}
           <Text
             color="blue.500"
-            fontFamily="cursive"
+            fontFamily="sans"
             fontSize={[10, 15, 20, 25]}
             textAlign="center"
             isTruncated

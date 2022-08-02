@@ -5,40 +5,35 @@ import SearchBox from "../components/SearchBox";
 import Title from "../components/Title";
 
 export default function Home({ json }) {
-  if (!json) {
-    return (
-      <Center mt="25%">
-        <Text
-          fontWeight="black"
-          fontFamily="cursive"
-          fontSize={[25, 35, 45, 55]}
-          color="blackAlpha.300"
-          textShadow="0px 0px 20px gray"
-        >
-          Loading...
-        </Text>{" "}
-      </Center>
-    );
-  }
-
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Created by Majid Ahmed" />
+        <title>Crypto Currency Realtime Price </title>
+        <meta name="description" content="coins price API App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Title />
-
-      <SearchBox json={json} />
-
-      <Main />
+      {!json ? (
+        <Center mt="15%">
+          <Text
+            fontWeight="black"
+            fontFamily="sans-serif"
+            fontSize={[25, 35, 45, 55]}
+            color="blackAlpha.300"
+            textShadow="0px 0px 20px gray"
+          >
+            Loading...
+          </Text>{" "}
+        </Center>
+      ) : (
+        <>
+          <Title />
+          <SearchBox json={json} /> <Main />
+        </>
+      )}
     </>
   );
 }
-
-// components
 
 // get server side props
 export async function getStaticProps() {
